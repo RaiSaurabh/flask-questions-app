@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
 from wtforms.fields import StringField, TextAreaField
-from wtforms.validators import Required
 
 
 class QuestionForm(FlaskForm):
