@@ -16,7 +16,7 @@ openai.api_key  = "sk-proj-20grd0Bvo-JQk8NgHOh6Tc_j2gG_M-VF_rcTFE_zRp0xqnDsUs76T
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
-    response = openai.chat.completion.create(
+    response = openai.chat.completions.create(
         model=model,
         messages=messages,
         temperature=0, # this is the degree of randomness of the model's output
