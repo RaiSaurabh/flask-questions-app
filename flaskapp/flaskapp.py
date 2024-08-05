@@ -26,11 +26,10 @@ def healthz():
 def index():
     return render_template('chatbot.html')
 
-@app.route("/get")
+@application.route("/get")
 def get_bot_response():    
     userText = request.args.get('msg')  
-    response = get_completion(userText)  
-    #return str(bot.get_response(userText)) 
+    response = get_completion(userText)
     return response
 
 @application.route('/new_question/', methods=('GET', 'POST'))
