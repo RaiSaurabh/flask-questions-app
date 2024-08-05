@@ -14,7 +14,7 @@ application.secret_key = os.environ['FLASK_SECRET']
 
 openai.api_key  = os.environ['API_SECRET']
 
-def get_completion(prompt, model="gpt-3.5-turbo"):
+def get_completion(prompt, model="gpt-4o-mini"):
     messages = [{"role": "user", "content": prompt}]
     response = openai.chat.completions.create(
         model=model,
