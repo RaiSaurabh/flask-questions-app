@@ -6,9 +6,13 @@ from flaskapp.forms import QuestionForm
 
 import requests
 import os
+#Openapi
+import openai
 
 application = Flask(__name__)
 application.secret_key = os.environ['FLASK_SECRET']
+
+openai.api_key  = "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"
 
 @application.route('/healthz')
 def healthz():
@@ -20,7 +24,14 @@ def healthz():
 
 @application.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('chatbot.html')
+
+@app.route("/get")
+def get_bot_response():    
+    userText = request.args.get('msg')  
+    response = get_completion(userText)  
+    #return str(bot.get_response(userText)) 
+    return response
 
 @application.route('/new_question/', methods=('GET', 'POST'))
 def new_question():
