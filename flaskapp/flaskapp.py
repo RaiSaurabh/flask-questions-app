@@ -12,7 +12,7 @@ import openai
 application = Flask(__name__)
 application.secret_key = os.environ['FLASK_SECRET']
 
-openai.api_key  = "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"
+openai.api_key  = os.environ['API_SECRET']
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
