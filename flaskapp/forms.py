@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextField, TextAreaField
+from wtforms.fields import StringField, TextAreaField
 from wtforms.validators import Required
 
 
@@ -10,5 +10,5 @@ class QuestionForm(FlaskForm):
     and validators to construct the form and validate input.
 
     """
-    summary = TextField(u'Question summary')
+    summary = StringField(u'Question summary')
     question = TextAreaField(u'Question')
