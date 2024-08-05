@@ -14,14 +14,17 @@ application.secret_key = os.environ['FLASK_SECRET']
 
 openai.api_key  = os.environ['API_SECRET']
 
+
 def get_completion(prompt, model="gpt-4o-mini"):
     messages = [{"role": "user", "content": prompt}]
-    response = openai.chat.completions.create(
-        model=model,
-        messages=messages,
-        temperature=0, # this is the degree of randomness of the model's output
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=messages,
+        max_tokens=150
     )
+    
     return response.choices[0].message["content"]
+
 
 @application.route('/healthz')
 def healthz():
